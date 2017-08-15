@@ -21,8 +21,37 @@ allprojects {
         google()
         jcenter()
     }
+
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    packageType = 'aar'
+    bintrayRepo = 'maven'
+    bintrayName = 'ChildcareCommonSdk'
+
+    mavenGroupId = 'com.childcare.common'
+
+    libraryDescription = 'Childcare Android app development common sdk'
+
+    siteUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk'
+    gitUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk.git'
+
+    libraryVersion = '0.1.1'
+
+    developerId = 'iPlanetcn'
+    developerName = 'John'
+    developerEmail = 'iplanetcn@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+

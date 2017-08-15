@@ -1,15 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-//apply plugin: 'bintray-release'
 
-// 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用
-version = "0.1"
+version = rootProject.ext.libraryVersion
 
 android {
-//    resourcePrefix "cc_" //随意填写(childcare short form cc_)
-
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
 
@@ -32,40 +27,39 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.1'
+    implementation 'com.android.support:support-annotations:26.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
 }
 
 
-def siteUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk'   // 项目的主页
-def gitUrl = 'git@github.com:iPlanetcn/ChildcareCommonSdk.git'   // Git仓库的url
-group = "com.childcare.common"  // Maven Group ID for the artifact，一般填你唯一的包名
+
+group = rootProject.ext.mavenGroupId
 
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
         pom {
             project {
-                packaging 'aar'
+                packaging rootProject.ext.packageType
                 // Add your description here
-                name 'Android CrashCatcher'     //项目的描述 你可以多写一点
+                name rootProject.ext.libraryDescription
                 url siteUrl
                 // Set your license
                 licenses {
                     license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        name rootProject.ext.licenseName
+                        url rootProject.ext.licenseUrl
                     }
                 }
                 developers {
                     developer {
-                        id 'iPlanetcn'        //填写的一些基本信息
-                        name 'John'
-                        email 'iplanetcn@gmail.com'
+                        id rootProject.ext.developerId
+                        name rootProject.ext.developerName
+                        email rootProject.ext.developerEmail
                     }
                 }
                 scm {
@@ -100,11 +94,11 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "maven"
-        name = "ChildcareCommonSdk"    //发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
+        repo = rootProject.ext.bintrayRepo
+        name = rootProject.ext.bintrayName
+        websiteUrl = rootProject.ext.siteUrl
+        vcsUrl = rootProject.ext.gitUrl
+        licenses = rootProject.ext.allLicenses
         publish = true
     }
 }
