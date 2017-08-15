@@ -87,11 +87,15 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def bintrayUser = properties.getProperty("bintray.user") ?: System.getenv("bintray.user")
+def bintrayApikey = properties.getProperty("bintray.apikey") ?: System.getenv("bintray.apikey")
+
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = bintrayUser
+    key = bintrayApikey
     configurations = ['archives']
     pkg {
         repo = rootProject.ext.bintrayRepo
