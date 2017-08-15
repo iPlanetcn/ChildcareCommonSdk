@@ -8,7 +8,7 @@ apply plugin: 'com.jfrog.bintray'
 version = "0.1"
 
 android {
-    resourcePrefix "cc_" //随意填写
+//    resourcePrefix "cc_" //随意填写(childcare short form cc_)
 
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -41,8 +41,8 @@ dependencies {
 }
 
 
-def siteUrl = 'https://github.com/iplanetcn/ChildcareCommonSdk'   // 项目的主页
-def gitUrl = 'git@github.com:iplanetcn/ChildcareCommonSdk.git'   // Git仓库的url
+def siteUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk'   // 项目的主页
+def gitUrl = 'git@github.com:iPlanetcn/ChildcareCommonSdk.git'   // Git仓库的url
 group = "com.childcare.common"  // Maven Group ID for the artifact，一般填你唯一的包名
 
 install {
@@ -63,7 +63,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'iplanetcn'        //填写的一些基本信息
+                        id 'iPlanetcn'        //填写的一些基本信息
                         name 'John'
                         email 'iplanetcn@gmail.com'
                     }

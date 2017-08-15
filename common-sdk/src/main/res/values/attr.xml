@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CellItemView">
+        <attr name="itemTitle" format="string"/>
+        <attr name="itemIcon" format="reference"/>
+        <attr name="itemIndicator" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="CouponView">
+        <attr name="couponAccentColor" format="color"/>
+        <attr name="couponDecentColor" format="color"/>
+        <attr name="couponContentColor" format="color"/>
+        <attr name="couponRadius" format="dimension"/>
+        <attr name="couponPercent" format="float"/>
+    </declare-styleable>
+</resources>
