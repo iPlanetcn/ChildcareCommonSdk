@@ -37,6 +37,9 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'ChildcareCommonSdk'
 
+    bintrayUser = System.getenv("BINTRAY_USER")
+    bintrayApikey = System.getenv("BINTRAY_APIKEY")
+
     mavenGroupId = 'com.childcare.common'
 
     libraryDescription = 'Childcare Android app development common sdk'
@@ -44,7 +47,7 @@ ext {
     siteUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk'
     gitUrl = 'https://github.com/iPlanetcn/ChildcareCommonSdk.git'
 
-    libraryVersion = '0.1.1'
+    libraryVersion = '0.1.2'
 
     developerId = 'iPlanetcn'
     developerName = 'John'
