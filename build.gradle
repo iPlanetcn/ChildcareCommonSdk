@@ -39,6 +39,12 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+// query git for the SHA, Tag and commit count. Use these to automate versioning.
+
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
+def gitCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
+
 ext {
     packageType = 'aar'
     bintrayRepo = 'maven'
@@ -54,7 +60,7 @@ ext {
     siteUrl = 'https://github.com/iplanetcn/ChildcareCommonSdk'
     gitUrl = 'https://github.com/iplanetcn/ChildcareCommonSdk.git'
 
-    libraryVersion = '0.1.2'
+    libraryVersion = gitTag ?: "1.0.0"
 
     developerId = 'iPlanetcn'
     developerName = 'John'

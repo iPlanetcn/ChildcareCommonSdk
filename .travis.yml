@@ -21,3 +21,11 @@ before_install:
 - "./gradlew dependencies || true"
 script:
 - "./gradlew build"
+deploy:
+  provider: script
+  script:
+  - "./gradlew bintrayUpload"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
