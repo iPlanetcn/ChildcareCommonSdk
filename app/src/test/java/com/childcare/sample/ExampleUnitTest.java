@@ -1,4 +1,4 @@
-package com.childcare.common;
+package com.childcare.sample;
 
 import org.junit.Test;
 
