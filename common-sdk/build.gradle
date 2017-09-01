@@ -32,6 +32,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 
-//apply from: "${rootDir}/common-sdk/jfrog_upload.gradle"
+//apply from: "${rootDir}/common-sdk/bintray_upload.gradle"
 
-apply from: "https://raw.githubusercontent.com/iplanetcn/config/master/jfrog/jfrog_upload.gradle"
+apply from: "https://raw.githubusercontent.com/iplanetcn/config/master/bintray/bintray_upload.gradle"
